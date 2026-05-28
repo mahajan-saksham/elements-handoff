@@ -1,0 +1,83 @@
+{
+  "project": "elements by vaidyam — product photography",
+  "style_guide": {
+    "lighting": "Soft natural light, indoor, warm white balance, 7-10am morning light, backlit when possible",
+    "surface": "Raw linen cloth, unfinished light wood, handmade ceramic plate, kraft paper — warm neutral tones matching #F7F2E6 / #FBF8F0",
+    "composition": "Centered or rule-of-thirds, 50-70% negative space, single subject per frame, shallow depth of field",
+    "mood": "Quiet, minimal, apothecary-meets-modern-kitchen, premium-accessible, Indian metro morning ritual",
+    "avoid": "Stock photography energy, mystic/temple imagery, saffron-orange decoration, marble, gold, luxury-aspirational, before/after, harsh midday light, cool-blue cast"
+  },
+  "images": [
+    {
+      "id": "hero-collection-card",
+      "location": "Homepage hero — right card (collection explore card, 3 product placeholders)",
+      "note": "This card has 3 separate ProductPlaceholder slots (coffee 3:4, shilajit 1:1, brahmi 5:6). Generate 3 individual product shots on transparent/neutral background that work as a grouped trio.",
+      "images": [
+        {
+          "slot": "coffee",
+          "dimensions": "Portrait 3:4 ratio, ~60px wide display",
+          "prompt": "A single dark matte glass jar of adaptogenic coffee with cream paper label, shot straight-on against a transparent or very light warm neutral background. Clean product-only shot, no props. Soft even studio lighting. Minimal shadow beneath."
+        },
+        {
+          "slot": "shilajit",
+          "dimensions": "Square 1:1 ratio, ~52px wide display",
+          "prompt": "A small round glass jar with wooden cap containing dark shilajit resin, shot straight-on against a transparent or very light warm neutral background. Clean product-only shot, no props. Soft even studio lighting. Minimal shadow beneath."
+        },
+        {
+          "slot": "brahmi",
+          "dimensions": "Portrait 5:6 ratio, ~48px wide display",
+          "prompt": "A small dark glass dropper bottle with cream label containing golden-amber brahmi liquid, shot straight-on against a transparent or very light warm neutral background. Clean product-only shot, no props. Soft even studio lighting. Minimal shadow beneath."
+        }
+      ]
+    },
+    {
+      "id": "wedge-coffee-hero",
+      "location": "Homepage wedge section — dark gradient hero, right side",
+      "dimensions": "Square 1:1 ratio, ~500x500px display area, product floats on dark background",
+      "prompt": "A dark matte glass jar of adaptogenic coffee, floating against a deep brown-black background. Warm amber radial glow behind the jar. The jar has a cream paper label with lowercase serif branding. Dramatic studio lighting, single warm key light from above-right. Visible condensation or texture on the jar surface. Moody, premium, clean product shot. No other objects. Dark background matching #1A0F08 to #3D2415.",
+      "background_color": "transparent / dark gradient"
+    },
+    {
+      "id": "collection-01-coffee",
+      "location": "Homepage collection grid — card 01",
+      "dimensions": "Landscape 16:9 ratio cropped, ~400x220px display area",
+      "prompt": "Adaptogenic coffee jar, dark matte glass with cream label, photographed from front-facing 3/4 angle on a warm peach-toned linen surface. A torn-open single-serve sachet beside it, coffee powder visible. Soft diffused natural light. Tight crop, product fills 60% of frame. Warm amber-cream color palette.",
+      "background_color": "#F5D3A8"
+    },
+    {
+      "id": "collection-02-shilajit",
+      "location": "Homepage collection grid — card 02",
+      "dimensions": "Landscape 16:9 ratio cropped, ~400x220px display area",
+      "prompt": "A small round glass jar with wooden cap containing dark shilajit resin. The jar sits on a raw stone slab or unfinished wood surface. A thin wooden spoon rests beside it with a small amount of dark resin. Soft morning light, earth tones, sage-green linen underneath. Minimal composition, apothecary feel. Product centered.",
+      "background_color": "#DCE3CE"
+    },
+    {
+      "id": "collection-03-brahmi",
+      "location": "Homepage collection grid — card 03",
+      "dimensions": "Landscape 16:9 ratio cropped, ~400x220px display area",
+      "prompt": "A small dark glass dropper bottle with cream label, containing golden-amber brahmi rasayana liquid. The dropper is pulled out slightly, showing the liquid. Placed on a pale lavender-tinted linen cloth. A single fresh green brahmi leaf beside the bottle, slightly out of focus. Soft diffused light. Muted indigo-violet and cream tones. Clean, clinical-botanical feel.",
+      "background_color": "#DCD2EA"
+    },
+    {
+      "id": "collection-04-ashwagandha",
+      "location": "Homepage collection grid — card 04",
+      "dimensions": "Landscape 16:9 ratio cropped, ~400x220px display area",
+      "prompt": "A dark matte glass bottle of ashwagandha tablets with cream paper label. The bottle is slightly open, 3-4 round beige tablets scattered naturally on the surface beside it. Placed on a sage-green linen cloth over light wood. Soft natural light from the side. Earthy, grounded, clean composition. Olive-green and cream palette.",
+      "background_color": "#DCE3CE"
+    },
+    {
+      "id": "collection-05-triphala",
+      "location": "Homepage collection grid — card 05",
+      "dimensions": "Landscape 16:9 ratio cropped, ~400x220px display area",
+      "prompt": "A wide-mouth glass jar with wooden lid containing fine brown-green triphala churna powder. A small brass measuring spoon rests on the rim. Placed on natural kraft paper over a sage-green linen. Warm side lighting, visible powder texture. A single dried amla fruit beside the jar, out of focus. Earthy, wholesome, apothecary aesthetic.",
+      "background_color": "#DCE3CE"
+    },
+    {
+      "id": "collection-06-herbal",
+      "location": "Homepage collection grid — card 06",
+      "dimensions": "Landscape 16:9 ratio cropped, ~400x220px display area",
+      "prompt": "A dark glass bottle with cream label containing herbal supplement capsules. Bottle on a soft teal-tinted linen cloth. 2-3 translucent capsules placed beside it showing the herbal powder inside. A sprig of dried herb nearby. Soft window light, cool-warm balanced tones. Teal and cream palette. Clean, minimal, modern apothecary.",
+      "background_color": "#C7DDDA"
+    }
+  ]
+}

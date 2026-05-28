@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  /* foundations */
+  --color-butter: #F7F2E6;
+  --color-cream: #FBF8F0;
+  --color-cocoa: #2A1F18;
+  --color-forest: #0C3530;
+  --color-ink: #2A2118;
+  --color-bone: #F2EDE3;
+  --color-bone-desat: #B8C9C0;
+
+  /* accents */
+  --color-sienna: #C4541E;
+  --color-saffron: #F0B947;
+  --color-marigold: #F2C557;
+
+  /* pancha — solids */
+  --color-akasha: #5B4E7A;
+  --color-vayu: #6A8AA8;
+  --color-agni: #C4541E;
+  --color-jala: #2E7A75;
+  --color-prithvi: #6B7A3D;
+
+  /* pancha — washes (50% tints) */
+  --color-akasha-wash: #DCD2EA;
+  --color-vayu-wash: #D2E2E8;
+  --color-agni-wash: #F5D3A8;
+  --color-jala-wash: #C7DDDA;
+  --color-prithvi-wash: #DCE3CE;
+
+  /* auxiliary */
+  --color-walnut: #6B5F47;
+  --color-stone: #E5DEC9;
+  --color-sand: #D9CFBC;
+  --color-brick: #9C3A1A;
+  --color-moss: #4A6B3A;
+
+  /* typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+
+  /* radius — elevated to match hims-grade softness */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-card: 20px;
+  --radius-pill: 999px;
+
+  /* shadows */
+  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.10);
+  --shadow-button: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* =============================================
+   Base styles
+   ============================================= */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--color-butter);
+  color: var(--color-ink);
+}
+
+/* =============================================
+   Typography primitives
+   ============================================= */
+
+/* The italic-keyword pattern — THE brand signature.
+   Sans headline + ONE Cormorant italic word in Sienna.
+   Always switch typefaces, never italicize Inter. */
+.italic-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-sienna);
+}
+
+/* On dark surfaces, italic accent uses Saffron */
+.italic-accent-amber {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-saffron);
+}
+
+/* On dark surfaces, italic accent uses Bone */
+.italic-accent-bone {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-bone);
+}
+
+/* Eyebrow: mono caps, 10px, wide tracking */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-walnut);
+}
+
+/* Mono caption style */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--color-walnut);
+  text-transform: uppercase;
+}
+
+/* =============================================
+   CSS Keyframes — animation library
+   ============================================= */
+
+/* Floating product bob — 4s infinite ease-in-out */
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Orbital rotate — 60s linear infinite */
+@keyframes orbital-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Compass dot pulse — 3s infinite */
+@keyframes compass-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-float-bob {
+  animation: float-bob 4s infinite ease-in-out;
+}
+
+.animate-orbital-rotate {
+  animation: orbital-rotate 60s linear infinite;
+}
+
+.animate-compass-pulse {
+  animation: compass-pulse 3s infinite;
+}
+
+/* =============================================
+   Card and surface utilities — hims-grade
+   ============================================= */
+
+/* Elevated card: shadow instead of border, larger radius */
+.card {
+  background: var(--color-cream);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+/* Pill button with shadow */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-button);
+  transition: all 0.2s ease;
+}
+
+.btn-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
