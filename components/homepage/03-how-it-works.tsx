@@ -1,65 +1,121 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { Cta } from "@/components/shared/cta";
+
 const steps = [
   {
     num: "01",
+    tab: "Quiz",
     headline: "Two minutes.",
-    body: "Seven questions. Your elemental profile in a bar chart. Reviewed by Dr. Iyer before you see results.",
-    gradient: "linear-gradient(145deg, #F7F2E6 0%, #F0EBD9 100%)",
+    accent: "Seven questions.",
+    accentColor: "text-vayu",
+    image: "/images/step-quiz.png",
   },
   {
     num: "02",
+    tab: "Match",
     headline: "Three products.",
-    body: "Personalised to the elements you're running high or low on. Coffee, drops, churna — whatever the imbalance asks for.",
-    gradient: "linear-gradient(145deg, #F7F2E6 0%, #EDE8D8 100%)",
+    accent: "One per imbalance.",
+    accentColor: "text-agni",
+    image: "/images/step-match.png",
   },
   {
     num: "03",
+    tab: "Ritual",
     headline: "One habit.",
-    body: "Same time each morning. Refills on subscribe — 15% off, free shipping, cancel anytime.",
-    gradient: "linear-gradient(145deg, #F7F2E6 0%, #E8E3D4 100%)",
+    accent: "Same time, each morning.",
+    accentColor: "text-prithvi",
+    image: "/images/step-ritual.png",
   },
 ];
 
 export function HowItWorks() {
+  const [active, setActive] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  // Auto-advance
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((a) => (a + 1) % steps.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [active]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) setActive((a) => (a + 1) % steps.length);
+      else setActive((a) => (a - 1 + steps.length) % steps.length);
+    }
+    touchStartX.current = null;
+  };
+
   return (
-    <section className="bg-cream py-[120px] max-[700px]:py-16">
+    <section className="bg-cream pt-[72px] pb-[120px] max-[700px]:pt-10 max-[700px]:pb-16">
       <div className="mx-auto max-w-[1280px] px-20 max-[900px]:px-6 max-[500px]:px-4">
-        {/* Intro */}
-        <p className="eyebrow mb-4">the elements ritual</p>
         <h2
-          className="text-ink font-sans font-semibold tracking-[-0.025em] leading-[1.06] mb-14 max-[700px]:mb-10"
-          style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
+          className="text-ink font-sans font-semibold tracking-[-0.025em] leading-[1.06] mb-10 max-[700px]:mb-8"
+          style={{ fontSize: "clamp(28px, 4vw, 46px)" }}
         >
           From quiz to <span className="text-sienna">ritual</span>, in 14 days.
         </h2>
 
-        {/* 3 step cards — gradient backgrounds, shadow-elevated */}
-        <div className="grid grid-cols-3 gap-4 mb-12 max-[900px]:grid-cols-1 max-[900px]:gap-5">
-          {steps.map((s) => (
+        {/* Swipeable carousel — flat editorial, no card */}
+        <div onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+          {/* Slides track */}
+          <div className="overflow-hidden">
             <div
-              key={s.num}
-              className="rounded-[20px] p-7 max-[500px]:p-6 min-h-[220px] shadow-[0_2px_14px_rgba(0,0,0,0.04)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300"
-              style={{ background: s.gradient }}
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${active * 100}%)` }}
             >
-              <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-walnut/60 mb-6">
-                {s.num}
-              </p>
-              <h3 className="font-sans font-semibold text-ink text-[22px] max-[500px]:text-[19px] leading-[1.15] tracking-[-0.015em] mb-3">
-                {s.headline}
-              </h3>
-              <p className="text-[14px] leading-[1.6] text-walnut">
-                {s.body}
-              </p>
-            </div>
-          ))}
-        </div>
+              {steps.map((s) => (
+                <div key={s.num} className="w-full flex-shrink-0">
+                  <div className="grid grid-cols-2 items-center gap-14 max-[800px]:grid-cols-1 max-[800px]:gap-8">
+                    {/* Image — flat, bold */}
+                    <Image
+                      src={s.image}
+                      alt={s.tab}
+                      width={1792}
+                      height={2400}
+                      className="w-full max-w-[460px] max-[800px]:max-w-[560px] max-[800px]:mx-auto aspect-[4/5] object-cover rounded-[20px]"
+                    />
 
-        {/* Ink CTA — pill with shadow */}
-        <a
-          href="/quiz"
-          className="inline-flex items-center gap-2 bg-ink text-bone font-medium text-[13px] px-6 py-3 rounded-pill shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_14px_rgba(0,0,0,0.14)] hover:-translate-y-0.5 transition-all duration-200"
-        >
-          Take the quiz →
-        </a>
+                    {/* Statement — left-aligned, bold */}
+                    <h3 className="font-sans font-semibold text-ink text-[46px] max-[900px]:text-[30px] max-[500px]:text-[26px] leading-[1.04] tracking-[-0.03em] max-w-[460px] max-[800px]:mt-1">
+                      {s.headline}{" "}
+                      <span className={s.accentColor}>{s.accent}</span>
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Footer — progress + CTA. Spread to edges on mobile; grouped left on desktop (clear of the fixed quiz FAB). */}
+          <div className="mt-12 max-[800px]:mt-10 flex items-center gap-8 max-[800px]:justify-between">
+            <div className="flex items-center gap-2">
+              {steps.map((s, i) => (
+                <button
+                  key={s.num}
+                  onClick={() => setActive(i)}
+                  aria-label={`Go to step ${s.num}`}
+                  className={`h-[3px] rounded-full transition-all duration-300 ${
+                    i === active ? "w-12 bg-ink" : "w-6 bg-stone hover:bg-sand"
+                  }`}
+                />
+              ))}
+            </div>
+            <Cta href="/quiz" variant="secondary">
+              Take the quiz
+            </Cta>
+          </div>
+        </div>
       </div>
     </section>
   );

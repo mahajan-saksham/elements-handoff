@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
-import { Announcement } from "@/components/chrome/announcement";
 import { Nav } from "@/components/chrome/nav";
 import { ElementalBar } from "@/components/chrome/elemental-bar";
 import { Footer } from "@/components/chrome/footer";
@@ -46,7 +45,6 @@ export default function RootLayout({
       className={`${inter.variable} ${cormorant.variable} ${ibmPlexMono.variable}`}
     >
       <body className="font-sans" suppressHydrationWarning>
-        <Announcement />
         <Nav />
         <ElementalBar />
         {children}

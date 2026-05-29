@@ -1,4 +1,5 @@
 import { ProductPlaceholder } from "@/components/shared/product-placeholder";
+import { Cta } from "@/components/shared/cta";
 
 const skus = [
   {
@@ -84,9 +85,9 @@ export function Collection() {
                   <span className="font-mono text-[11px] tracking-[0.04em] font-medium">
                     {s.price}
                   </span>
-                  <span className="text-[11px] font-medium inline-flex items-center gap-1.5 bg-ink text-bone px-4 py-2 rounded-pill shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
-                    Examine →
-                  </span>
+                  <Cta as="span" variant="secondary" size="sm">
+                    Examine
+                  </Cta>
                 </div>
               </div>
             </a>

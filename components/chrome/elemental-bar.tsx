@@ -1,11 +1,11 @@
 export function ElementalBar() {
   return (
-    <div className="grid grid-cols-5 h-1.5">
-      <div className="bg-akasha" />
-      <div className="bg-vayu" />
-      <div className="bg-agni" />
-      <div className="bg-jala" />
-      <div className="bg-prithvi" />
-    </div>
+    <div
+      className="h-1.5"
+      style={{
+        background:
+          "linear-gradient(to right, #5B4E7A 0%, #6A8AA8 25%, #C4541E 50%, #2E7A75 75%, #6B7A3D 100%)",
+      }}
+    />
   );
 }

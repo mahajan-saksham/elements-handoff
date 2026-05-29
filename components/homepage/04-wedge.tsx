@@ -1,9 +1,10 @@
-import { ProductPlaceholder } from "@/components/shared/product-placeholder";
+import Image from "next/image";
+import { Cta } from "@/components/shared/cta";
 
 export function Wedge() {
   return (
     <section
-      className="relative overflow-hidden py-[140px] max-[700px]:py-16"
+      className="relative overflow-hidden pt-[96px] pb-[140px] max-[700px]:pt-12 max-[700px]:pb-16"
       style={{
         background:
           "linear-gradient(135deg, #1A0F08 0%, #3D2415 50%, #6B3A18 100%)",
@@ -27,11 +28,6 @@ export function Wedge() {
         <div className="grid grid-cols-[1.15fr_0.85fr] gap-14 items-center max-[900px]:grid-cols-1">
           {/* Left column — copy */}
           <div>
-            {/* Saffron eyebrow */}
-            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-saffron mb-6">
-              Hero sku · 01 of 06
-            </p>
-
             {/* H2 — all Inter, no Cormorant. Saffron accent word. */}
             <h2
               className="font-sans font-semibold text-bone leading-[1.0] tracking-[-0.025em] mb-7 max-w-[560px]"
@@ -65,18 +61,12 @@ export function Wedge() {
 
             {/* CTAs */}
             <div className="flex items-center gap-4 flex-wrap mb-10">
-              <a
-                href="#"
-                className="inline-flex items-center gap-2.5 bg-bone text-cocoa font-medium text-sm px-7 py-3.5 rounded-pill shadow-[0_2px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.25)] hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Add to ritual · ₹99 →
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 bg-transparent text-bone font-medium text-[13px] px-[22px] py-3 rounded-pill border-[0.5px] border-bone/30 hover:border-bone/60 transition-colors"
-              >
+              <Cta href="#" variant="secondary" onDark>
+                Add to ritual · ₹99
+              </Cta>
+              <Cta href="#" variant="tertiary" onDark>
                 See the formulation
-              </a>
+              </Cta>
             </div>
 
             {/* Batch line */}
@@ -85,25 +75,24 @@ export function Wedge() {
             </div>
           </div>
 
-          {/* Right column — product placeholder with amber glow */}
+          {/* Right column — floating product with amber glow */}
           <div className="relative aspect-square grid place-items-center">
             {/* Radial amber glow */}
             <div
               className="absolute rounded-full pointer-events-none"
               style={{
-                inset: "12%",
+                inset: "6%",
                 background:
-                  "radial-gradient(circle, rgba(240,185,71,0.30) 0%, rgba(240,185,71,0) 65%)",
+                  "radial-gradient(circle, rgba(240,185,71,0.32) 0%, rgba(240,185,71,0) 65%)",
               }}
             />
-            <div className="relative z-[2] w-[65%]">
-              <ProductPlaceholder
-                variant="dark"
-                aspectRatio="3/4"
-                label="coffee · hero photo"
-                className="!rounded-[20px]"
-              />
-            </div>
+            <Image
+              src="/images/wedge-coffee.png"
+              alt="elements adaptogenic instant coffee — sachet and brewed cup"
+              width={1398}
+              height={1434}
+              className="relative z-[2] w-[86%] h-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)]"
+            />
           </div>
         </div>
       </div>

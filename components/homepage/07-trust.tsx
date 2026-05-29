@@ -1,10 +1,12 @@
+import { Cta, Chevron } from "@/components/shared/cta";
+
 const scienceCards = [
   {
     num: "01 · extract",
     headline: "KSM-66 (Ixoreal, India)",
     accentWord: "Ixoreal,",
     body: "The most-studied ashwagandha extract in clinical literature — 24+ peer-reviewed RCTs. Root-only by design.",
-    link: "See the studies →",
+    link: "See the studies",
     gradient: "linear-gradient(145deg, #F7F2E6 0%, #F0EBD9 100%)",
   },
   {
@@ -12,7 +14,7 @@ const scienceCards = [
     headline: "Withanolide 5.2% ± 0.3",
     accentWord: "5.2% ± 0.3",
     body: "Published on every pack of every ashwagandha-containing SKU. Most brands won't.",
-    link: "Read the methodology →",
+    link: "Read the methodology",
     gradient: "linear-gradient(145deg, #F7F2E6 0%, #EDE8D8 100%)",
   },
   {
@@ -20,7 +22,7 @@ const scienceCards = [
     headline: "Eurofins, every batch",
     accentWord: "Eurofins,",
     body: "Heavy metals, pesticides, microbial load, withanolide assay. Tested independently. Reports linked on every PDP.",
-    link: "View batch reports →",
+    link: "View batch reports",
     gradient: "linear-gradient(145deg, #F7F2E6 0%, #E8E3D4 100%)",
   },
 ];
@@ -85,18 +87,12 @@ export function Trust() {
 
             {/* CTAs */}
             <div className="flex items-center gap-4 flex-wrap">
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 bg-ink text-bone font-medium text-[12px] px-5 py-2.5 rounded-pill shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_14px_rgba(0,0,0,0.14)] hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Read her protocols →
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 bg-transparent text-ink font-medium text-[13px] px-[22px] py-3 rounded-pill border-[0.5px] border-ink/25 hover:border-ink/50 transition-colors"
-              >
+              <Cta href="#" variant="secondary">
+                Read her protocols
+              </Cta>
+              <Cta href="#" variant="tertiary">
                 Book a consult · ₹499
-              </a>
+              </Cta>
             </div>
           </div>
 
@@ -151,9 +147,10 @@ export function Trust() {
               </p>
               <a
                 href="#"
-                className="font-mono text-[10px] tracking-[0.12em] uppercase text-ink font-medium pt-4 border-t-[0.5px] border-ink/8 inline-flex items-center gap-1.5"
+                className="group/cta font-mono text-[10px] tracking-[0.12em] uppercase text-ink font-medium pt-4 border-t-[0.5px] border-ink/8 inline-flex items-center gap-1.5"
               >
                 {card.link}
+                <Chevron className="w-[11px] h-[11px]" />
               </a>
             </div>
           ))}

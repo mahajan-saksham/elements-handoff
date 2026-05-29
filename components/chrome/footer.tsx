@@ -1,4 +1,5 @@
 import { ElementalBar } from "./elemental-bar";
+import { Chevron } from "@/components/shared/cta";
 
 export function Footer() {
   return (
@@ -45,7 +46,7 @@ export function Footer() {
               <li><a href="#" className="text-[13px] text-bone/85 hover:text-saffron hover:opacity-100 transition-colors">Agni · fire</a></li>
               <li><a href="#" className="text-[13px] text-bone/85 hover:text-saffron hover:opacity-100 transition-colors">Jala · water</a></li>
               <li><a href="#" className="text-[13px] text-bone/85 hover:text-saffron hover:opacity-100 transition-colors">Prithvi · earth</a></li>
-              <li><a href="#" className="text-[13px] text-bone/85 hover:text-saffron hover:opacity-100 transition-colors font-serif italic">Take the Pancha quiz →</a></li>
+              <li><a href="#" className="group/cta inline-flex items-center gap-1.5 text-[13px] text-bone/85 hover:text-saffron hover:opacity-100 transition-colors font-serif italic">Take the Pancha quiz<Chevron className="w-[11px] h-[11px]" /></a></li>
             </ul>
           </div>
 

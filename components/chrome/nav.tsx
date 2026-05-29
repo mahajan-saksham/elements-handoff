@@ -1,15 +1,19 @@
-import { BrandMark } from "@/components/shared/brand-mark";
+import Image from "next/image";
 
 export function Nav() {
   return (
     <nav className="bg-butter sticky top-0 z-50 border-b-[0.5px] border-stone">
       <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-6 px-20 py-[18px] max-[900px]:px-6 max-[900px]:py-3.5">
-        {/* Left: brand mark + wordmark */}
-        <a href="/" className="inline-flex items-center gap-2.5">
-          <BrandMark size={28} />
-          <span className="font-serif italic text-[28px] leading-none text-ink tracking-[-0.01em]">
-            elements
-          </span>
+        {/* Left: brand logo */}
+        <a href="/" className="inline-flex items-center">
+          <Image
+            src="/images/logo-v3.png"
+            alt="elements by vaidyam"
+            width={506}
+            height={104}
+            priority
+            className="h-12 w-auto max-[900px]:h-10"
+          />
         </a>
 
         {/* Center: nav links — hidden on mobile */}
